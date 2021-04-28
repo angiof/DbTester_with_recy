@@ -1,17 +1,14 @@
 package com.example.dbtester.db
 
-import androidx.room.Dao
-import androidx.room.Delete
-import androidx.room.Insert
-import androidx.room.Query
+import androidx.room.*
 
 
 @Dao
 interface DaoRicette {
     @Query("SELECT * FROM ricette")
-    suspend fun getAll(): List<RicettaEntity>
+    suspend fun getAll(): Array<RicettaEntity>
 
-    @Insert
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertAll(vararg ricetta: RicettaEntity)
 
     @Delete

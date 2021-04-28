@@ -2,6 +2,9 @@ package com.example.dbtester
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
+import android.widget.Toast
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -11,41 +14,44 @@ import com.example.dbtester.db.RicettaEntity
 import com.example.kitau.ui.notifications.AdapteRecy
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
+import layout.Venatana
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-val db = DatabaseRicette.invoke(applicationContext)
 
         val binding = ActivityMainBinding.inflate(layoutInflater)
-        GlobalScope.launch {
-           // val lista:ArrayList<RicettaEntity>=db.
-      //  db.DaoRicette().insertAll(RicettaEntity(4,"s","sd",2))
+
+
+        // array.add(RicettaEntity(2,"sds","sds",22))
 
 
 
-        }
-
-       // array.add(RicettaEntity(2,"sds","sds",22))
-
-
-        val AdapteRecy: RecyclerView.Adapter<*>
-        val layoutManager = LinearLayoutManager(baseContext, LinearLayoutManager.VERTICAL, false)
-        val gridLayoutManager = LinearLayoutManager(baseContext, GridLayoutManager.VERTICAL, false)
-
-        with(binding){
-            recyclerView.setHasFixedSize(true)
-             recyclerView.layoutManager=layoutManager
-             recyclerView.layoutManager =gridLayoutManager
-
-           // recyclerView.adapter = AdapteRecy(array,this@MainActivity)
 
 
 
-        }
+
 
         setContentView(binding.root)
 
 
     }
+
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.popu,menu)
+        return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when(item.itemId){
+            R.id.okmenu -> {
+                val dialog= Venatana()
+                dialog.show(supportFragmentManager,"fd")
+            }
+        }
+
+        return super.onOptionsItemSelected(item)
+    }
+
 }

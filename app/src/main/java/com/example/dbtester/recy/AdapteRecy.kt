@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.dbtester.databinding.RecyModelBinding
 import com.example.dbtester.db.RicettaEntity
 
-class AdapteRecy(private var mdaata: ArrayList<RicettaEntity>, val contex: Context?) :
+class AdapteRecy(private var mdaata: Array<RicettaEntity>, val contex: Context?) :
     RecyclerView.Adapter<AdapteRecy.RicetteHolder>() {
 
     inner class RicetteHolder(val binding: RecyModelBinding) : RecyclerView.ViewHolder(binding.root)
