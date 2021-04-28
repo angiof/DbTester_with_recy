@@ -8,6 +8,7 @@ import androidx.fragment.app.DialogFragment
 import com.example.dbtester.databinding.VentanaLayoutBinding
 import com.example.dbtester.db.DatabaseRicette
 import com.example.dbtester.db.RicettaEntity
+import com.example.kitau.ui.notifications.AdapteRecy
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
@@ -28,11 +29,10 @@ class Venatana : DialogFragment() {
             button.setOnClickListener {
 
                 GlobalScope.launch {
-                    val title:String=titolotText.text.toString()
-                    val descri:String=descrizioneText.text.toString()
+                    val title: String = titolotText.text.toString()
+                    val descri: String = descrizioneText.text.toString()
 
-                      db.DaoRicette().insertAll(RicettaEntity(titolo = title, descrizione = descri,  tempo = 7))
-
+                    db.DaoRicette().insertAll(RicettaEntity(titolo = title, descrizione = descri, tempo = 7))
 
                 }
                 dismiss()
